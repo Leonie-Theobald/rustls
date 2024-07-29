@@ -651,7 +651,7 @@ fn make_config(args: &Args) -> Arc<rustls::ServerConfig> {
     }
 
     if args.flag_max_early_data > 0 {
-        if !&versions.contains(&&rustls::version::TLS13) {
+        if !versions.contains(&&rustls::version::TLS13) {
             panic!("Early data is only available for servers supporting TLS1.3");
         }
         if args.flag_no_resumption {
