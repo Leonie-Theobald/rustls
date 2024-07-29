@@ -644,8 +644,6 @@ fn make_config(args: &Args) -> Arc<rustls::ServerConfig> {
 
     if args.flag_no_resumption {
         config.session_storage = Arc::new(rustls::server::NoServerSessionStorage {});
-    } else {
-        config.session_storage = rustls::server::ServerSessionMemoryCache::new(256);
     }
 
     if args.flag_tickets {
